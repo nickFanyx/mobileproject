@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "341106389029",
+    "project_id": "store2door-29ad0",
+    "storage_bucket": "store2door-29ad0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341106389029:android:63842dae371f9286c54fcc",
+        "android_client_info": {
+          "package_name": "com.example.mobileproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341106389029-lvpkakc7hcagabdkd8837jfc806u5cnv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrJCHC9SNzW6Oi1URpRCBcm7mH7E05XbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341106389029-lvpkakc7hcagabdkd8837jfc806u5cnv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
