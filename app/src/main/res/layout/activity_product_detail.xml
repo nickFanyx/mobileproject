@@ -70,7 +70,7 @@
         android:textSize="18sp"
         android:text="The fuji apple is an apple cultivar developed by
 glowers at Tohoku Research Station in Fujisaki, Aomori, Japan in the late
-1930s "
+1930s er"
         android:textColor="@color/black"
         android:background="#f2f3f4">
 
