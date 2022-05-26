@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="paddingTopBot">10dp</dimen>
+    <dimen name="paddingSide">10dp</dimen>
+    <dimen name="regularTextSize">14sp</dimen>
+    <dimen name="smallestTextSize">12sp</dimen>
+    <dimen name="marginTopBot">10dp</dimen>
+    <dimen name="marginSide">5dp</dimen>
+    <dimen name="paddingTopBotAP">15dp</dimen>
+</resources>
