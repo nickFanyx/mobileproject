@@ -23,12 +23,15 @@
             android:exported="false" />
         <activity
             android:name=".ShoppingCart"
+            android:theme="@style/Theme.Mobileproject.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.Mobileproject.NoActionBar"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

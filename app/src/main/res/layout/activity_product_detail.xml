@@ -20,7 +20,7 @@
         android:layout_height="300dp"
         android:layout_below="@id/textView2"
         android:layout_centerInParent="true"
-        android:src="@drawable/FujiApple" />
+        android:src="@drawable/fujiapple" />
 
     <TextView
 
@@ -47,7 +47,7 @@
         android:layout_width="70dp"
         android:layout_height="60dp"
         android:layout_below="@+id/textView4"
-        android:src="@drawable/StarRate"
+        android:src="@drawable/starrate"
 
         />
     <TextView

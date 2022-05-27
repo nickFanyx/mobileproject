@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-    <item android:id="@+id/nav_category"
+    <item android:id="@+id/nav_home"
         android:icon="@drawable/ic_baseline_category_24"
-        android:title="Category" />
+        android:title="Home" />
     <item android:id="@+id/nav_shopping_cart"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
         android:title="Shopping cart" />

@@ -3,6 +3,8 @@
     <color name="colorPrimary">#FF5151</color><!--DA2259-->
     <color name="colorPrimaryDark">#B54141</color>
     <color name="colorAccent">#DA2259</color>
+    <color name="colorSecondary">#1C5381</color>
+    <color name="primaryLessOpacity">#48FF5151</color>
     <color name="shimmer">#EDEFEF</color>
     <color name="seperatorColor">#EFF1F2</color>
     <color name="font1">#1D364B</color>

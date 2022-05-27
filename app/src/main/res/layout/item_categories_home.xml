@@ -13,20 +13,21 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="@dimen/marginTopBot"
-        android:src="@drawable/ic_bg_blue"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <!--android:src="@drawable/ic_bg_blue"-->
     <ImageView
         android:id="@+id/ivCategoryIcon"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="@dimen/marginTopBot"
-        android:src="@drawable/groceries"
+
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivBgColor" />
-
+    <!--android:src="@drawable/groceries"-->
     <TextView
         android:id="@+id/tvCategoryName"
         android:layout_width="wrap_content"

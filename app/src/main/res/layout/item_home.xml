@@ -124,10 +124,10 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:rating="4"
-            android:theme="@style/StarTheme"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemPriceAD" />
-
+        <!-- android:theme="@style/StarTheme" !-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
