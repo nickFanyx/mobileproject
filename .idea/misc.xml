@@ -13,14 +13,10 @@
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_checkout.xml" value="0.25" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_edit_address.xml" value="0.25" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_login.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_main2.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_payment_successful.xml" value="0.29739583333333336" />
-        <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_product_detail.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_shopping_cart.xml" value="0.2" />
-        <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/fragment_about.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/activity_shopping_cart.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/fragment_category.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/fragment_help.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/fragment_order_history.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/item_categories_home.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/item_category.xml" value="0.18802083333333333" />
@@ -29,9 +25,20 @@
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/toolbar.xml" value="0.15341880341880343" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/toolbar_with_back_navigation.xml" value="0.15341880341880343" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/menu/drawer_menu.xml" value="0.18" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.293" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/drawable/popular_item.xml" value="0.293" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/activity_edit_address.xml" value="0.3532608695652174" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/activity_main.xml" value="0.3532608695652174" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/activity_main2.xml" value="0.3532608695652174" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/activity_payment_successful.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/fragment_category.xml" value="0.3532608695652174" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/fragment_home.xml" value="0.3532608695652174" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/item_categories_home.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/item_category.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/item_home.xml" value="0.22282608695652173" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/popular_item.xml" value="0.3532608695652174" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/toolbar.xml" value="0.3532608695652174" />
+        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/toolbar_with_back_navigation.xml" value="0.3532608695652174" />
       </map>
     </option>
   </component>
