@@ -13,8 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.mobileproject.HomeCategory;
 import com.example.mobileproject.PopularModel;
 import com.example.mobileproject.R;
+import com.example.mobileproject.adapters.HomeAdapter;
 import com.example.mobileproject.adapters.PopularAdapters;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -72,11 +74,17 @@ public class fragment_home extends Fragment {
       //  }
    // }
 
-    RecyclerView popularRec;
+    RecyclerView popularRec,homeCatRec;
     FirebaseFirestore db;
 
+    //Popular Items
     List<PopularModel> popularModelList;
     PopularAdapters popularAdapters;
+
+    //Home Category
+    List<HomeCategory> categoryList;
+    HomeAdapter homeAdapter;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,7 +93,9 @@ public class fragment_home extends Fragment {
         db = FirebaseFirestore.getInstance();
 
         popularRec = root.findViewById(R.id.pop_rec);
+        homeCatRec = root.findViewById(R.id.explore_rec);
 
+        //Popular Items
         popularRec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
         popularModelList = new ArrayList<>();
         popularAdapters = new PopularAdapters(getActivity(),popularModelList);
@@ -102,6 +112,31 @@ public class fragment_home extends Fragment {
                                 PopularModel popularModel = document.toObject(PopularModel.class);
                                 popularModelList.add(popularModel);
                                 popularAdapters.notifyDataSetChanged();
+                            }
+                        } else {
+
+                            Toast.makeText(getActivity(),"Error" + task.getException(), Toast.LENGTH_SHORT);
+                        }
+                    }
+                });
+
+        //Home Category
+        homeCatRec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
+        categoryList = new ArrayList<>();
+        homeAdapter = new HomeAdapter(getActivity(),categoryList);
+        homeCatRec.setAdapter(homeAdapter);
+
+        db.collection("HomeCategory")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                HomeCategory homeCategory = document.toObject(HomeCategory.class);
+                                categoryList.add(homeCategory);
+                                homeAdapter.notifyDataSetChanged();
                             }
                         } else {
 
