@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.mobileproject.HomeCategory;
@@ -98,9 +99,11 @@ public class fragment_home extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         db = FirebaseFirestore.getInstance();
 
+
         popularRec = root.findViewById(R.id.pop_rec);
         homeCatRec = root.findViewById(R.id.explore_rec);
         recommendedRec = root.findViewById(R.id.recommend_rec);
+
 
         //Popular Items
         popularRec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
