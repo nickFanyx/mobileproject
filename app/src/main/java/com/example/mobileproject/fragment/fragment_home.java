@@ -80,6 +80,7 @@ public class fragment_home extends Fragment {
     RecyclerView popularRec,homeCatRec,recommendedRec;
     FirebaseFirestore db;
 
+    Button btn;
     //Popular Items
     List<PopularModel> popularModelList;
     PopularAdapters popularAdapters;
@@ -103,6 +104,7 @@ public class fragment_home extends Fragment {
         popularRec = root.findViewById(R.id.pop_rec);
         homeCatRec = root.findViewById(R.id.explore_rec);
         recommendedRec = root.findViewById(R.id.recommend_rec);
+
 
 
         //Popular Items

@@ -58,7 +58,7 @@ public class PopularAdapters extends RecyclerView.Adapter<PopularAdapters.ViewHo
             popImg = itemView.findViewById(R.id.pop_img);
             name = itemView.findViewById(R.id.pop_name);
             description = itemView.findViewById(R.id.pop_des);
-            rating = itemView.findViewById(R.id.pop_rec);
+            rating = itemView.findViewById(R.id.pop_rating);
             discount = itemView.findViewById(R.id.pop_dis);
         }
     }
