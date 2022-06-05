@@ -75,64 +75,6 @@ public class ViewAllActivity extends AppCompatActivity {
             });
         }
 
-        ///////Getting fish
-        if (type != null && type.equalsIgnoreCase("fish")) {
-            firestore.collection("AllProducts").whereEqualTo("type", "fish").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
-                        ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
-                        viewAllModelList.add(viewAllModel);
-                        viewAllAdapter.notifyDataSetChanged();
-                    }
-                }
-            });
-        }
-
-        ///////Getting meat
-        if (type != null && type.equalsIgnoreCase("meat")) {
-            firestore.collection("AllProducts").whereEqualTo("type", "meat").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
-                        ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
-                        viewAllModelList.add(viewAllModel);
-                        viewAllAdapter.notifyDataSetChanged();
-                    }
-                }
-            });
-        }
-        ///////Getting canned
-        if (type != null && type.equalsIgnoreCase("canned")) {
-            firestore.collection("AllProducts").whereEqualTo("type", "canned").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
-                        ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
-                        viewAllModelList.add(viewAllModel);
-                        viewAllAdapter.notifyDataSetChanged();
-                    }
-                }
-            });
-        }
-
-        ///////Getting bread
-        if (type != null && type.equalsIgnoreCase("bread")) {
-            firestore.collection("AllProducts").whereEqualTo("type", "bread").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
-                        ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
-                        viewAllModelList.add(viewAllModel);
-                        viewAllAdapter.notifyDataSetChanged();
-                    }
-                }
-            });
-        }
 
         ///////Getting fish
         if (type != null && type.equalsIgnoreCase("fish")) {
