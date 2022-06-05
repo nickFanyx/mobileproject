@@ -1,5 +1,9 @@
 package com.example.mobileproject;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -21,6 +25,8 @@ public class Checkout extends AppCompatActivity {
     private ActivityCheckoutBinding binding;
     private ArrayList<CartModel> cartModelArrayList;
     private float totalPrice, totalPayment;
+    private ActivityResultLauncher<Intent> address;
+    private String currAdd="";
 
 
     @Override
@@ -32,7 +38,47 @@ public class Checkout extends AppCompatActivity {
         SetToolbar();
         LoadBundle();
         SetupRecyclerview();
+        HandleOnClick();
+        address=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result !=null && result.getResultCode()== RESULT_OK){
+                    if (result.getData()!=null && result.getData().getStringExtra(EditAddress.KEY_ADD)!=null){
 
+                        binding.tvAddress.setText(result.getData().getStringExtra(EditAddress.KEY_ADD));
+                        currAdd=result.getData().getStringExtra(EditAddress.KEY_ADD);
+                    }else{
+                        binding.tvAddress.setText("Please add your address to proceed...");
+                    }
+                }
+
+            }
+        });
+
+
+
+    }
+
+    private void HandleOnClick() {
+        binding.tvAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Checkout.this, EditAddress.class);
+                if(currAdd!=""){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("currAdd",currAdd);
+                    intent.putExtra("BUNDLE",bundle);
+                }
+
+                address.launch(intent);
+
+            }
+        });
+    }
+
+    @Override
+    public void onActivityReenter(int resultCode, Intent data) {
+        super.onActivityReenter(resultCode, data);
     }
 
     private void SetupRecyclerview() {
