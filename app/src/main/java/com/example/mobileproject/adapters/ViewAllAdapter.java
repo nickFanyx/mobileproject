@@ -41,6 +41,13 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
         holder.rating.setText(list.get(position).getRating());
         holder.price.setText(list.get(position).getPrice() + "/kg");
 
+        if (list.get(position).getType().equals("bread")){
+            holder.price.setText(list.get(position).getPrice() + "/pack");
+        }
+        if (list.get(position).getType().equals("canned")){
+            holder.price.setText(list.get(position).getPrice() + "/unit");
+        }
+
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.mobileproject.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.mobileproject.HomeCategory;
 import com.example.mobileproject.R;
+import com.example.mobileproject.ViewAllActivity;
 
 import java.util.List;
 
@@ -37,6 +39,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         Glide.with(context).load(categoryList.get(position).getImg_url()).into(holder.catImg);
         holder.name.setText(categoryList.get(position).getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ViewAllActivity.class);
+                intent.putExtra("type",categoryList.get(holder.getAdapterPosition()).getType());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
