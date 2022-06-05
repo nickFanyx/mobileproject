@@ -12,19 +12,18 @@
         <activity
             android:name=".ViewAllActivity"
             android:exported="false"
-            android:theme="@style/Theme.Mobileproject.NoActionBar"/>
+            android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".ProductDetail"
             android:exported="false" />
         <activity
             android:name=".EditAddress"
             android:exported="false"
-            android:theme="@style/Theme.Mobileproject.NoActionBar"
-            />
+            android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".Checkout"
             android:exported="false"
-            android:theme="@style/Theme.Mobileproject.NoActionBar"/>
+            android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".Login"
             android:exported="false" />
