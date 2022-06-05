@@ -1,5 +1,6 @@
 package com.example.mobileproject.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import com.example.mobileproject.HomeCategory;
 import com.example.mobileproject.PopularModel;
 import com.example.mobileproject.R;
 import com.example.mobileproject.RecommendedModel;
+import com.example.mobileproject.ShakeActivity;
 import com.example.mobileproject.ViewAllModel;
 import com.example.mobileproject.adapters.HomeAdapter;
 import com.example.mobileproject.adapters.PopularAdapters;
@@ -86,7 +88,7 @@ public class fragment_home extends Fragment {
     RecyclerView popularRec,homeCatRec,recommendedRec;
     FirebaseFirestore db;
 
-    Button btn;
+
     //Popular Items
     List<PopularModel> popularModelList;
     PopularAdapters popularAdapters;
@@ -117,7 +119,6 @@ public class fragment_home extends Fragment {
         popularRec = root.findViewById(R.id.pop_rec);
         homeCatRec = root.findViewById(R.id.explore_rec);
         recommendedRec = root.findViewById(R.id.recommend_rec);
-
 
 
         //Popular Items
@@ -171,7 +172,7 @@ public class fragment_home extends Fragment {
                 });
 
 
-        //Home Category
+        //Recommend
         recommendedRec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
         recommendedModelList = new ArrayList<>();
         recommendedAdapter = new RecommendedAdapter(getActivity(),recommendedModelList);
