@@ -28,6 +28,7 @@
         android:layout_marginTop="28dp"
         android:inputType="textMultiLine"
         android:gravity="top|start"
+
         android:layout_marginHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:lines="4"
@@ -48,8 +49,7 @@
         android:paddingBottom="10dp"
         android:text="Save"
         android:textColor="@color/white"
-        android:alpha="0.8"
-        android:enabled="false"
+        android:alpha="1.1"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
 

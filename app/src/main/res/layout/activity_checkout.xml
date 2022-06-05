@@ -67,9 +67,9 @@
                 android:layout_marginEnd="@dimen/marginTopBot"
                 android:gravity="center"
                 android:src="@drawable/ic_arrow_forward"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintTop_toTopOf="@+id/tvAddress"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAddress"
                 app:tint="@color/font3" />
 
 
@@ -98,7 +98,7 @@
                 android:foreground="?attr/selectableItemBackground"
                 android:paddingStart="@dimen/paddingSide"
                 android:paddingEnd="20dp"
-                android:text="Please select your address to proceed..."
+                android:text="Please add your address to proceed..."
                 android:textColor="@color/font4"
                 android:textSize="@dimen/regularTextSize"
                 app:layout_constraintEnd_toEndOf="parent"
