@@ -9,7 +9,7 @@
 
 
     <LinearLayout
-        android:background="#DFFFD1"
+        android:background="#CEE3BE"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -18,8 +18,9 @@
             android:background="@drawable/border"
             android:id="@+id/cat_nav_img"
             android:scaleType="centerInside"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="150dp"
+            android:layout_marginRight="5dp"
             android:src="@drawable/bread"/>
 
         <LinearLayout
