@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Mobileproject">
         <activity
             android:name=".ViewAllActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Mobileproject.NoActionBar"/>
         <activity
             android:name=".ProductDetail"
             android:exported="false" />

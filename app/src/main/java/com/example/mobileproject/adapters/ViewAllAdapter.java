@@ -39,7 +39,7 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
         holder.name.setText(list.get(position).getName());
         holder.description.setText(list.get(position).getDescription());
         holder.rating.setText(list.get(position).getRating());
-        holder.price.setText(list.get(position).getPrice()+"/kg");
+        holder.price.setText(list.get(position).getPrice() + "/kg");
 
     }
 
@@ -60,6 +60,7 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
             name = itemView.findViewById(R.id.view_name);
             description = itemView.findViewById(R.id.view_description);
             price = itemView.findViewById(R.id.view_price);
+            rating = itemView.findViewById(R.id.view_rating);
         }
     }
 }
