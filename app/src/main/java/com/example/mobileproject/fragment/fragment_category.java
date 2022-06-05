@@ -2,13 +2,29 @@ package com.example.mobileproject.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.mobileproject.NavCategoryModel;
+import com.example.mobileproject.PopularModel;
 import com.example.mobileproject.R;
+import com.example.mobileproject.adapters.NavCategoryAdapter;
+import com.example.mobileproject.adapters.PopularAdapters;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +32,12 @@ import com.example.mobileproject.R;
  * create an instance of this fragment.
  */
 public class fragment_category extends Fragment {
+
+    FirebaseFirestore db;
+
+    RecyclerView recyclerView;
+    List<NavCategoryModel> categoryModelList;
+    NavCategoryAdapter navCategoryAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +83,38 @@ public class fragment_category extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false);
+        View root = inflater.inflate(R.layout.fragment_category, container, false);
+
+
+        db = FirebaseFirestore.getInstance();
+        recyclerView = root.findViewById(R.id.cat_rec);
+
+        //Category
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false));
+        categoryModelList = new ArrayList<>();
+        navCategoryAdapter = new NavCategoryAdapter(getActivity(),categoryModelList);
+        recyclerView.setAdapter(navCategoryAdapter);
+
+        db.collection("NavCategory")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                NavCategoryModel navCategoryModel = document.toObject(NavCategoryModel.class);
+                                categoryModelList.add(navCategoryModel);
+                                navCategoryAdapter.notifyDataSetChanged();
+                            }
+                        } else {
+
+                            Toast.makeText(getActivity(),"Error" + task.getException(), Toast.LENGTH_SHORT);
+                        }
+                    }
+                });
+
+
+        return root;
     }
 }
