@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.mobileproject.fragment.fragment_about;
+import com.example.mobileproject.fragment.fragment_category;
 import com.example.mobileproject.fragment.fragment_home;
 import com.example.mobileproject.fragment.fragment_help;
 import com.example.mobileproject.fragment.fragment_order_history;
@@ -55,6 +56,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_home()).commit();
 
                 break;
+
+            case R.id.nav_category:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_category()).commit();
+                break;
+
             case R.id.nav_shopping_cart:
 
                 startActivity(new Intent(MainActivity.this, ShoppingCart.class));
