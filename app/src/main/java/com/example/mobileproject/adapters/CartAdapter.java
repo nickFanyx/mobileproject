@@ -62,6 +62,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ItemViewHolder
         Glide.with(context).load(cartModels.get(position).getImageurl()).into(holder.ivProduct);
         holder.tvPrice.setText("RM " + String.format("%.2f", cartModels.get(position).getPrice()));
         holder.tvQuantity.setText("" + cartModels.get(position).getOrderQty());
+        Log.i(TAG, "Error: item Id" + cartModels.get(position).getItemId());
 
         if (cbArray.size() < getItemCount()) {
             cbArray.add(holder.cbSelect);
@@ -196,7 +197,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ItemViewHolder
                                 db = FirebaseFirestore.getInstance();
                                 final DocumentReference ref = db.collection("Cart").document(cartModels.get(position).getItemId());
 
-                                /*ref.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                ref.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         Toast.makeText(context, "Removed Successfully", Toast.LENGTH_SHORT).show();
@@ -206,7 +207,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ItemViewHolder
                                     public void onFailure(@NonNull Exception e) {
                                         Toast.makeText(context, "Failed to remove", Toast.LENGTH_SHORT).show();
                                     }
-                                });*/
+                                });
                                 cartModels.remove(tempIndex);
                                 if (getItemCount() == 0) {
                                     notifyDataSetChanged();
