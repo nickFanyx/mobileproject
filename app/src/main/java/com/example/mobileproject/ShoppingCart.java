@@ -103,8 +103,8 @@ public class ShoppingCart extends AppCompatActivity implements CartAdapter.OnLis
                         binding.cartShimmer.setVisibility(View.GONE);
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Log.i(TAG, "Error: " + document.getId());
-                            CartModel cart = new CartModel(document.getId(), document.get("productId").toString(), document.get("productName").toString(), document.get("userId").toString(), Integer.parseInt(document.get("orderQty").toString()), Float.parseFloat(document.get("price").toString()), document.get("imageurl").toString());
-                            //CartModel cart = document.toObject(CartModel.class);
+                            //CartModel cart = new CartModel(document.getId(), document.get("productId").toString(), document.get("productName").toString(), document.get("userId").toString(), Integer.parseInt(document.get("orderQty").toString()), Float.parseFloat(document.get("price").toString()), document.get("imageurl").toString());
+                            CartModel cart = document.toObject(CartModel.class);
                             cartModelArrayList.add(cart);
                         }
                         SetupRecyclerview();
