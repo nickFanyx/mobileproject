@@ -53,7 +53,7 @@
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price $"/>
+                    android:text="Price RM"/>
 
                 <TextView
                     android:id="@+id/view_price"
@@ -61,7 +61,7 @@
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="RM 30"/>
+                    android:text="30"/>
 
 
             </LinearLayout>
@@ -72,7 +72,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_marginLeft="-5dp"
+                    android:layout_marginLeft="0dp"
                     android:layout_width="70dp"
                     android:layout_height="30dp"
                     android:src="@drawable/rating_bar"/>
