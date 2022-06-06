@@ -23,6 +23,7 @@ import com.example.mobileproject.PopularModel;
 import com.example.mobileproject.R;
 import com.example.mobileproject.RecommendedModel;
 import com.example.mobileproject.ShakeActivity;
+import com.example.mobileproject.ShoppingCart;
 import com.example.mobileproject.ViewAllModel;
 import com.example.mobileproject.adapters.HomeAdapter;
 import com.example.mobileproject.adapters.PopularAdapters;
@@ -88,6 +89,9 @@ public class fragment_home extends Fragment {
     RecyclerView popularRec,homeCatRec,recommendedRec;
     FirebaseFirestore db;
 
+    Button voucherBtn;
+
+
 
     //Popular Items
     List<PopularModel> popularModelList;
@@ -116,10 +120,17 @@ public class fragment_home extends Fragment {
         db = FirebaseFirestore.getInstance();
 
 
+        voucherBtn = root.findViewById(R.id.voucher_button);
         popularRec = root.findViewById(R.id.pop_rec);
         homeCatRec = root.findViewById(R.id.explore_rec);
         recommendedRec = root.findViewById(R.id.recommend_rec);
 
+        voucherBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ShakeActivity.class));
+            }
+        });
 
         //Popular Items
         popularRec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));

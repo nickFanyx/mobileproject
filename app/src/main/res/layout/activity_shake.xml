@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ShakeActivity"
     android:orientation="vertical"
     android:background="#ADFFB3">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_shake2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SHAKE TO WIN"
@@ -22,7 +22,7 @@
         android:fontFamily="sans-serif-condensed-light"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_shake"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Congratulations !!!!"
@@ -41,7 +41,7 @@
         android:layout_marginTop="50dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView_shake"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

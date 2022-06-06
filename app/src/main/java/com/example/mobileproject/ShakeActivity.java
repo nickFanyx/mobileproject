@@ -15,16 +15,16 @@ import android.widget.Toast;
 
 public class ShakeActivity extends AppCompatActivity {
 
-    private TextView textView;
-    private ImageView imageView;
+    TextView textView1;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_shake);
 
-        textView = findViewById(R.id.textView);
-        imageView = findViewById(R.id.imageView);
+        textView1 = findViewById(R.id.textView_shake);
+        imageView = findViewById(R.id.imageView_shake);
 
         SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor sensorShake = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -47,14 +47,14 @@ public class ShakeActivity extends AppCompatActivity {
                     //                           z_accl < -2
 
                     if (floatSum > 14){
-                        textView.setText("Congratulation !!!");
+                        textView1.setText("Congratulation !!!");
                         imageView.setImageResource(R.drawable.voucher);
                         Toast.makeText(ShakeActivity.this,"Can Redeem At Home Page...",Toast.LENGTH_LONG)
                                 .show();
 
                     }
                     else {
-                        textView.setText("Shake To WIN Voucher !!!");
+                        textView1.setText("Shake To WIN Voucher !!!");
                         imageView.setImageResource(R.drawable.shake);
                     }
                 }
