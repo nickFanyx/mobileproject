@@ -16,6 +16,7 @@ import com.example.mobileproject.fragment.fragment_category;
 import com.example.mobileproject.fragment.fragment_home;
 import com.example.mobileproject.fragment.fragment_help;
 import com.example.mobileproject.fragment.fragment_order_history;
+import com.example.mobileproject.fragment.fragment_profile;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -78,7 +79,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_about:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_about()).commit();
                 break;
-
+            case R.id.nav_profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_profile()).commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
 
