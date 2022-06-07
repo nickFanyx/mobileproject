@@ -20,7 +20,8 @@
             android:layout_margin="8dp"
             android:drawableLeft="@drawable/ic_baseline_search_24"
             android:padding="13dp"
-            android:hint="Search Your Item"
+            android:hint="Search Category Here"
+            android:fontFamily="sans-serif-condensed-light"
             android:drawablePadding="5dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -52,17 +53,11 @@
                 android:layout_weight="1"
                 android:text="Popular Products"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/black"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/view_all_popular"
-                android:layout_weight="1"
-                android:text="View All"
-                android:gravity="end"
-                android:layout_marginRight="7dp"
-                android:textSize="16sp"/>
+
 
         </LinearLayout>
 
@@ -86,17 +81,11 @@
                 android:layout_weight="1"
                 android:text="Explore Products"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/black"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/view_all_explore"
-                android:layout_weight="1"
-                android:text="View All"
-                android:gravity="end"
-                android:layout_marginRight="7dp"
-                android:textSize="16sp"/>
+
 
         </LinearLayout>
 
@@ -119,17 +108,11 @@
                 android:layout_weight="1"
                 android:text="Recommended"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/black"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/view_all_recommend"
-                android:layout_weight="1"
-                android:text="View All"
-                android:gravity="end"
-                android:layout_marginRight="7dp"
-                android:textSize="16sp"/>
+
 
         </LinearLayout>
 

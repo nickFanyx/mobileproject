@@ -49,8 +49,6 @@ public class ShakeActivity extends AppCompatActivity {
                     if (floatSum > 14){
                         textView1.setText("Congratulation !!!");
                         imageView.setImageResource(R.drawable.voucher);
-                        Toast.makeText(ShakeActivity.this,"Can Redeem At Home Page...",Toast.LENGTH_LONG)
-                                .show();
 
                     }
                     else {
