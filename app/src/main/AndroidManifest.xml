@@ -3,6 +3,7 @@
     package="com.example.mobileproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,7 @@
         <activity
             android:name=".RegistrationActivity"
             android:exported="false"
-            android:theme="@style/Theme.Mobileproject.NoActionBar"/>
+            android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".ShakeActivity"
             android:exported="false" />

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ import com.example.mobileproject.PopularModel;
 import com.example.mobileproject.R;
 import com.example.mobileproject.RecommendedModel;
 import com.example.mobileproject.ShakeActivity;
-import com.example.mobileproject.ShoppingCart;
 import com.example.mobileproject.ViewAllModel;
 import com.example.mobileproject.adapters.HomeAdapter;
 import com.example.mobileproject.adapters.PopularAdapters;
@@ -89,7 +87,7 @@ public class fragment_home extends Fragment {
     RecyclerView popularRec,homeCatRec,recommendedRec;
     FirebaseFirestore db;
 
-    Button voucherBtn;
+    Button voucherBtn, complaintBtn;
 
 
 
@@ -120,6 +118,7 @@ public class fragment_home extends Fragment {
         db = FirebaseFirestore.getInstance();
 
 
+        complaintBtn = root.findViewById(R.id.complain_button);
         voucherBtn = root.findViewById(R.id.voucher_button);
         popularRec = root.findViewById(R.id.pop_rec);
         homeCatRec = root.findViewById(R.id.explore_rec);
@@ -131,6 +130,7 @@ public class fragment_home extends Fragment {
                 startActivity(new Intent(getActivity(), ShakeActivity.class));
             }
         });
+
 
         //Popular Items
         popularRec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));

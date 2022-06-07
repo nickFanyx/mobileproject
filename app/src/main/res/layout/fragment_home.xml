@@ -12,6 +12,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="Any Complaint ?"
+            android:id="@+id/complain_button"/>
+
         <EditText
             android:elevation="3dp"
             android:id="@+id/search_box"
