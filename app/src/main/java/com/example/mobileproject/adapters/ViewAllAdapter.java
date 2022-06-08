@@ -1,6 +1,7 @@
 package com.example.mobileproject.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mobileproject.DetailedActivity;
 import com.example.mobileproject.R;
 import com.example.mobileproject.ViewAllModel;
 
@@ -47,6 +49,18 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
         if (list.get(position).getType().equals("canned")){
             holder.price.setText(list.get(position).getPrice() + "/unit");
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent =new Intent(context,DetailedActivity.class);
+                intent.putExtra("detail",list.get(position));
+                context.startActivities(new Intent[]{intent});
+
+
+            }
+        });
 
     }
 
