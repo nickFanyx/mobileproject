@@ -25,7 +25,6 @@ public class DetailedActivity extends AppCompatActivity {
 
     ViewAllModel viewAllModel = null;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,5 +93,6 @@ public class DetailedActivity extends AppCompatActivity {
             });
 
         }
+
     }
 }

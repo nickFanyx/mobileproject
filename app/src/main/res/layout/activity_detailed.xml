@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".DetailedActivity">
 
-
-
     <ImageView
         android:id="@+id/detailed_img"
         android:layout_width="match_parent"
@@ -43,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/detailed_img"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"/>
-    
+
     <ImageView
 
         android:id="@+id/rating"
@@ -66,7 +64,7 @@
         android:layout_marginRight="14dp"
         app:layout_constraintEnd_toStartOf="@id/rating"
         app:layout_constraintTop_toBottomOf="@id/detailed_img"/>
-    
+
     <TextView
         android:id="@+id/product_description"
         android:layout_width="wrap_content"
@@ -78,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailed_price"/>
-    
+
     <TextView
         android:id="@+id/detailed_dec"
         android:layout_width="match_parent"
@@ -89,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/product_description"/>
-    
+
     <RelativeLayout
         android:id="@+id/relativeLayout_product"
         android:layout_width="match_parent"
@@ -129,7 +127,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/quantity"
         app:layout_constraintTop_toTopOf="@+id/relativeLayout_product"/>
-    
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_to_cart"
         android:layout_width="150dp"
@@ -142,7 +140,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/relativeLayout_product"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

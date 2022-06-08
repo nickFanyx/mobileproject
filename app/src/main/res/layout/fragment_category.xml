@@ -17,8 +17,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="25dp"
+        android:fontFamily="sans-serif-condensed"
         android:background="@color/colorAccent"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textAlignment="center"/>
 

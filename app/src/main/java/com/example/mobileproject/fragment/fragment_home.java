@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.mobileproject.ComplaintActivity;
 import com.example.mobileproject.HomeCategory;
 import com.example.mobileproject.PopularModel;
 import com.example.mobileproject.R;
@@ -128,6 +129,13 @@ public class fragment_home extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), ShakeActivity.class));
+            }
+        });
+
+        complaintBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ComplaintActivity.class));
             }
         });
 
