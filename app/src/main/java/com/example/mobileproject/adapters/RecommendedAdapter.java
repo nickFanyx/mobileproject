@@ -1,6 +1,7 @@
 package com.example.mobileproject.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.mobileproject.R;
 import com.example.mobileproject.RecommendedModel;
+import com.example.mobileproject.ViewAllActivity;
 
 import java.util.List;
 
@@ -39,6 +41,15 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
         holder.name.setText(list.get(position).getName());
         holder.description.setText(list.get(position).getDescription());
         holder.rating.setText(list.get(position).getRating());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ViewAllActivity.class);
+                intent.putExtra("type",list.get(holder.getAdapterPosition()).getType());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
