@@ -86,15 +86,11 @@ public class EditAddress extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Location> task) {
                 Location location = task.getResult();
-                Log.i("location :", "harelah1");
                 if (location != null) {
-                    Log.i("location :", "harelah2");
                     try {
-                        Log.i("location :", "harelah3");
                         Geocoder geocoder = new Geocoder(EditAddress.this, Locale.getDefault());
                         List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                         String add = addresses.get(0).getAddressLine(0);
-                        Log.i("location :", " harelah4" + add);
                         Intent intent = new Intent();
                         intent.putExtra(KEY_ADD, add);
                         setResult(RESULT_OK, intent);
@@ -103,7 +99,7 @@ public class EditAddress extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 } else {
-                    Log.i("location :", "harelah1 location takde jir");
+
                 }
 
             }
