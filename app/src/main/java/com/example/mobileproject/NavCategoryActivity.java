@@ -72,5 +72,65 @@ public class NavCategoryActivity extends AppCompatActivity {
                 }
             });
         }
+
+        ///////Getting fishs
+        if (type != null && type.equalsIgnoreCase("fishs")) {
+            db.collection("NavCategoryDetailed").whereEqualTo("type", "fishs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
+                        NavCategoryDetailedModel viewAllModel = documentSnapshot.toObject(NavCategoryDetailedModel.class);
+                        list.add(viewAllModel);
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            });
+        }
+
+        ///////Getting vegetables
+        if (type != null && type.equalsIgnoreCase("vegetables")) {
+            db.collection("NavCategoryDetailed").whereEqualTo("type", "vegetables").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
+                        NavCategoryDetailedModel viewAllModel = documentSnapshot.toObject(NavCategoryDetailedModel.class);
+                        list.add(viewAllModel);
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            });
+        }
+
+        //////Getting breads
+        if (type != null && type.equalsIgnoreCase("breads")) {
+            db.collection("NavCategoryDetailed").whereEqualTo("type", "breads").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
+                        NavCategoryDetailedModel viewAllModel = documentSnapshot.toObject(NavCategoryDetailedModel.class);
+                        list.add(viewAllModel);
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            });
+        }
+
+        //////Getting canneds
+        if (type != null && type.equalsIgnoreCase("canneds")) {
+            db.collection("NavCategoryDetailed").whereEqualTo("type", "canneds").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
+                        NavCategoryDetailedModel viewAllModel = documentSnapshot.toObject(NavCategoryDetailedModel.class);
+                        list.add(viewAllModel);
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            });
+        }
     }
 }

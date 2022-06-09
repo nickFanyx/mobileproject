@@ -17,25 +17,39 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.mobileproject.databinding.ActivityComplaintBinding;
+import com.example.mobileproject.databinding.ActivityPaymentSuccessfulBinding;
+
 public class ComplaintActivity extends AppCompatActivity {
 
     public static final int CAMERA_PERM_CODE = 101;
     public static final int CAMERA_REQUEST_CODE = 102;
     ImageView selectedImage;
-    Button cameraBtn;
+    Button cameraBtn,confirmBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaint);
 
+
+
         selectedImage = findViewById(R.id.imageView_complaint);
         cameraBtn = findViewById(R.id.button_complain);
+        confirmBtn = findViewById(R.id.button_complain2);
 
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 askCameraPermissions();
+            }
+        });
+
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ComplaintActivity.this, MainActivity.class));
+                Toast.makeText(ComplaintActivity.this, "Successfully Complaint", Toast.LENGTH_SHORT).show();
             }
         });
 
