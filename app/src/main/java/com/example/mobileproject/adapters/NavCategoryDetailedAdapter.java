@@ -1,7 +1,6 @@
 package com.example.mobileproject.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.mobileproject.NavCategoryActivity;
-import com.example.mobileproject.NavCategoryModel;
+import com.example.mobileproject.Model.NavCategoryDetailedModel;
 import com.example.mobileproject.R;
 
 import java.util.List;
 
-public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.ViewHolder> {
+public class NavCategoryDetailedAdapter extends RecyclerView.Adapter<NavCategoryDetailedAdapter.ViewHolder> {
 
     Context context;
-    List<NavCategoryModel> list;
+    List<NavCategoryDetailedModel> list;
 
-    public NavCategoryAdapter(Context context, List<NavCategoryModel> list) {
+    public NavCategoryDetailedAdapter(Context context, List<NavCategoryDetailedModel> list) {
         this.context = context;
         this.list = list;
     }
@@ -31,7 +29,7 @@ public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.nav_cat_item,parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.nav_category_detailed_item,parent,false));
     }
 
     @Override
@@ -39,18 +37,7 @@ public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.
 
         Glide.with(context).load(list.get(position).getImg_url()).into(holder.imageView);
         holder.name.setText(list.get(position).getName());
-        holder.description.setText(list.get(position).getDescription());
-        holder.discount.setText(list.get(position).getDiscount());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, NavCategoryActivity.class);
-                intent.putExtra("type",list.get(position).getType());
-                context.startActivity(intent);
-            }
-        });
-
+        holder.price.setText(list.get(position).getPrice());
     }
 
     @Override
@@ -61,14 +48,15 @@ public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView name,description,discount;
+        TextView name,price;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             imageView = itemView.findViewById(R.id.cat_nav_img);
             name = itemView.findViewById(R.id.cat_nav_name);
-            description = itemView.findViewById(R.id.cat_nav_description);
-            discount = itemView.findViewById(R.id.cat_nav_discount);
+            price = itemView.findViewById(R.id.price);
+
         }
     }
 }

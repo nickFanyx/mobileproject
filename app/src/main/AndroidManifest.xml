@@ -15,9 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobileproject">
         <activity
+            android:name=".NavCategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailedActivity"
             android:exported="false"
-            android:theme="@style/Theme.Mobileproject.NoActionBar"/>
+            android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".ComplaintActivity"
             android:exported="false" />
