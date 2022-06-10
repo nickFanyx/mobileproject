@@ -2,18 +2,29 @@ package com.example.mobileproject.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.mobileproject.Model.OrderlistActivity;
+import com.example.mobileproject.Model.OrderlistModel;
+import com.example.mobileproject.NavCategoryModel;
 import com.example.mobileproject.R;
-import com.example.mobileproject.adapters.OrderlistAdapter;
+import com.example.mobileproject.adapters.NavCategoryAdapter;
+import com.example.mobileproject.adapters.OrderAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,10 +34,14 @@ import java.util.List;
  */
 public class fragment_order_history extends Fragment {
 
-    FirebaseFirestore firestore;
-    OrderlistAdapter viewAdapter;
-    List<OrderlistActivity> viewOrderList;
+    FirebaseFirestore db;
+
     RecyclerView recyclerView;
+    List<OrderlistModel> orderlistModel;
+    OrderAdapter orderAdapter;
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +51,7 @@ public class fragment_order_history extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public fragment_order_history() {
         // Required empty public constructor
@@ -73,6 +89,42 @@ public class fragment_order_history extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_order_history, container, false);
+
+        db = FirebaseFirestore.getInstance();
+        recyclerView = root.findViewById(R.id.orderlist);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false));
+        orderlistModel = new ArrayList<>();
+        orderAdapter = new OrderAdapter(getActivity(),orderlistModel);
+        recyclerView.setAdapter(orderAdapter);
+        db.collection("Order")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                OrderlistModel orderlistModels = document.toObject(OrderlistModel.class);
+                                orderlistModel.add(orderlistModels);
+                                orderAdapter.notifyDataSetChanged();
+                            }
+                        } else {
+
+                            Toast.makeText(getActivity(),"Error" + task.getException(), Toast.LENGTH_SHORT);
+                        }
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
 
 
         return root;
