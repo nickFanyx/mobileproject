@@ -84,4 +84,6 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
             rating = itemView.findViewById(R.id.view_rating);
         }
     }
+
+
 }

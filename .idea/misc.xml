@@ -25,6 +25,39 @@
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/toolbar.xml" value="0.15341880341880343" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/layout/toolbar_with_back_navigation.xml" value="0.15341880341880343" />
         <entry key="..\:/Users/U S E R/StudioProjects/mobileproject/app/src/main/res/menu/drawer_menu.xml" value="0.18" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/drawable/arrow.xml" value="0.152" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/drawable/ic_empty_cart.xml" value="0.152" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_complaint.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_detailed.xml" value="0.11684782608695653" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_edit_address.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_login.xml" value="0.11684782608695653" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_main.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_main2.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_nav_category.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_payment_successful.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_shake.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_shopping_cart.xml" value="0.11684782608695653" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/activity_view_all.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/fragment_category.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/fragment_help.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/fragment_home.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/fragment_order_history.xml" value="0.16" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/fragment_profile.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/home_cat_items.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/item_categories_home.xml" value="0.264" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/item_category.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/item_home.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/item_product_cart.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/nav_cat_item.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/nav_category_detailed_item.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/orderlist.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/orderlist_item.xml" value="0.264" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/popular_item.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/recommended_item.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/shimmer_cart.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/toolbar.xml" value="0.146875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/layout/view_all_item.xml" value="0.264" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/mobileproject/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/drawable/account.xml" value="0.196" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/drawable/border.xml" value="0.306" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/drawable/edittext_bg.xml" value="0.306" />
@@ -60,8 +93,6 @@
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/item_categories_home.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/item_category.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/item_home.xml" value="0.22282608695652173" />
-        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/item_product_cart.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/item_product_checkout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/nav_cat_item.xml" value="0.264" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/nav_category_detailed_item.xml" value="0.365625" />
         <entry key="..\:/Users/win10/Desktop/MOBILE APPLICATION DEVELOPMENT/mobileproject2/app/src/main/res/layout/popular_item.xml" value="0.3532608695652174" />
