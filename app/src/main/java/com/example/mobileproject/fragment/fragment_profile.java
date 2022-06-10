@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -46,7 +47,7 @@ public class fragment_profile extends Fragment{
 
 
     CircleImageView profileImg;
-    EditText name, email, number;
+    TextView name, email;
     Button update;
 
     FirebaseStorage storage;
@@ -67,8 +68,6 @@ public class fragment_profile extends Fragment{
         profileImg = root.findViewById(R.id.profile_img);
         name = root.findViewById(R.id.profile_name);
         email = root.findViewById(R.id.profile_email);
-        number = root.findViewById(R.id.profile_number);
-        update = root.findViewById(R.id.update);
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -76,6 +75,8 @@ public class fragment_profile extends Fragment{
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 UserModel userModel = snapshot.getValue(UserModel.class);
 
+                                name.setText(userModel.getName());
+                                email.setText(userModel.getEmail());
                                 Glide.with(getContext()).load(userModel.getProfileImg()).into(profileImg);
                             }
 
@@ -95,20 +96,11 @@ public class fragment_profile extends Fragment{
                 startActivityForResult(intent, 131);
             }
         });
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                updateUserProfile();
-            }
-        });
 
         return root;
     }
 
-    private void updateUserProfile() {
-
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
