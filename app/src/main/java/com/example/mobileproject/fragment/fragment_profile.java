@@ -22,11 +22,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.mobileproject.Model.UserModel;
 import com.example.mobileproject.R;
 import com.example.mobileproject.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -43,16 +48,6 @@ public class fragment_profile extends Fragment{
     CircleImageView profileImg;
     EditText name, email, number;
     Button update;
-
-    ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    Log.d(TAG, "onActivityResult:");
-                }
-            }
-    );
 
     FirebaseStorage storage;
     FirebaseAuth auth;
@@ -75,6 +70,21 @@ public class fragment_profile extends Fragment{
         number = root.findViewById(R.id.profile_number);
         update = root.findViewById(R.id.update);
 
+        database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                UserModel userModel = snapshot.getValue(UserModel.class);
+
+                                Glide.with(getContext()).load(userModel.getProfileImg()).into(profileImg);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
 
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,12 +92,13 @@ public class fragment_profile extends Fragment{
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
-                activityLauncher.launch(intent);
+                startActivityForResult(intent, 131);
             }
         });
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 updateUserProfile();
             }
         });
@@ -99,24 +110,34 @@ public class fragment_profile extends Fragment{
 
     }
 
-    ActivityResultLauncher<Intent>getActivityLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(data.getData() != null){
+            Uri profileUri = data.getData();
+            profileImg.setImageURI(profileUri);
+
+            final StorageReference reference = storage.getReference().child("profile_picture")
+                    .child(FirebaseAuth.getInstance().getUid());
+
+            reference.putFile(profileUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-                        Uri profileUri = data.getData();
-                        profileImg.setImageURI(profileUri);
-                        final StorageReference reference = storage.getReference().child("profile_picture")
-                                .child(FirebaseAuth.getInstance().getUid());
-                        reference.putFile(profileUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                Toast.makeText(getContext(), "Uploaded", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(getContext(), "Uploaded", Toast.LENGTH_SHORT).show();
+
+                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+
+                            database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                                    .child("profileImg").setValue(uri.toString());
+                            Toast.makeText(getContext(), "Profile Picture Uploaded", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
                 }
             });
+        }
+    }
 };
