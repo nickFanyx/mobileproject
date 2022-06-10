@@ -1,6 +1,7 @@
 package com.example.mobileproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.graphics.drawable.Drawable;
@@ -9,14 +10,20 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.mobileproject.databinding.ActivityShakeBinding;
+import com.example.mobileproject.databinding.ActivityShoppingCartBinding;
 
 public class ShakeActivity extends AppCompatActivity {
 
     TextView textView1;
     ImageView imageView;
+    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +32,9 @@ public class ShakeActivity extends AppCompatActivity {
 
         textView1 = findViewById(R.id.textView_shake);
         imageView = findViewById(R.id.imageView_shake);
+        toolbar = findViewById(R.id.toolbar5);
+        setSupportActionBar(toolbar);
+
 
         SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor sensorShake = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -68,4 +78,5 @@ public class ShakeActivity extends AppCompatActivity {
         sensorManager.registerListener(sensorEventListener,sensorShake,SensorManager.SENSOR_DELAY_NORMAL);
 
     }
+
 }

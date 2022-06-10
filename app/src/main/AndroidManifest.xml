@@ -23,14 +23,16 @@
             android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".ComplaintActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Mobileproject.NoActionBar"/>
         <activity
             android:name=".RegistrationActivity"
             android:exported="false"
             android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".ShakeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".ViewAllActivity"
             android:exported="false"

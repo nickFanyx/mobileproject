@@ -3,6 +3,7 @@ package com.example.mobileproject;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -26,6 +27,7 @@ public class ComplaintActivity extends AppCompatActivity {
     public static final int CAMERA_REQUEST_CODE = 102;
     ImageView selectedImage;
     Button cameraBtn,confirmBtn;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class ComplaintActivity extends AppCompatActivity {
         selectedImage = findViewById(R.id.imageView_complaint);
         cameraBtn = findViewById(R.id.button_complain);
         confirmBtn = findViewById(R.id.button_complain2);
+        toolbar = findViewById(R.id.toolbar5);
+        setSupportActionBar(toolbar);
 
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
