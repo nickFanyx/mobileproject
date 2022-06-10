@@ -21,9 +21,9 @@ import java.util.List;
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder> {
 
     Context context;
-    List<OrderlistModel> list;
+    List<OrderModel> list;
 
-    public OrderAdapter(Context context, List<OrderlistModel> list) {
+    public OrderAdapter(Context context, List<OrderModel> list) {
         this.context = context;
         this.list = list;
     }
@@ -38,10 +38,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        OrderlistModel orderlistModel = list.get(position);
+        OrderModel orderlistModel = list.get(position);
         holder.address.setText(orderlistModel.getAddress());
-        holder.totalpayment.setText(orderlistModel.getTotalpayment());
-        holder.totalprice.setText(orderlistModel.getTotalprice());
+        holder.totalpayment.setText(""+orderlistModel.getTotalPayment());
+        holder.totalprice.setText(""+orderlistModel.getTotalPrice());
 
     }
 

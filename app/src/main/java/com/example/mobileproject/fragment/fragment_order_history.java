@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.mobileproject.Model.OrderModel;
 import com.example.mobileproject.Model.OrderlistModel;
 import com.example.mobileproject.NavCategoryModel;
 import com.example.mobileproject.R;
@@ -37,7 +38,7 @@ public class fragment_order_history extends Fragment {
     FirebaseFirestore db;
 
     RecyclerView recyclerView;
-    List<OrderlistModel> orderlistModel;
+    List<OrderModel> orderlistModel;
     OrderAdapter orderAdapter;
 
 
@@ -105,7 +106,7 @@ public class fragment_order_history extends Fragment {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                OrderlistModel orderlistModels = document.toObject(OrderlistModel.class);
+                                OrderModel orderlistModels = document.toObject(OrderModel.class);
                                 orderlistModel.add(orderlistModels);
                                 orderAdapter.notifyDataSetChanged();
                             }
