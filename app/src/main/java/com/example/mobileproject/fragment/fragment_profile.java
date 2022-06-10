@@ -1,66 +1,122 @@
 package com.example.mobileproject.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.mobileproject.R;
+import com.example.mobileproject.databinding.ActivityMainBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link fragment_profile#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class fragment_profile extends Fragment {
+import java.lang.ref.Reference;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import de.hdodenhof.circleimageview.CircleImageView;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class fragment_profile extends Fragment{
 
-    public fragment_profile() {
-        // Required empty public constructor
+    private static final String TAG = "fragment_profile";
+
+
+    CircleImageView profileImg;
+    EditText name, email, number;
+    Button update;
+
+    ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    Log.d(TAG, "onActivityResult:");
+                }
+            }
+    );
+
+    FirebaseStorage storage;
+    FirebaseAuth auth;
+    FirebaseDatabase database;
+
+
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
+
+        profileImg = root.findViewById(R.id.profile_img);
+        name = root.findViewById(R.id.profile_name);
+        email = root.findViewById(R.id.profile_email);
+        number = root.findViewById(R.id.profile_number);
+        update = root.findViewById(R.id.update);
+
+
+        profileImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                activityLauncher.launch(intent);
+            }
+        });
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateUserProfile();
+            }
+        });
+
+        return root;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_profile.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static fragment_profile newInstance(String param1, String param2) {
-        fragment_profile fragment = new fragment_profile();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    private void updateUserProfile() {
+
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
-    }
-}
+    ActivityResultLauncher<Intent>getActivityLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        Uri profileUri = data.getData();
+                        profileImg.setImageURI(profileUri);
+                        final StorageReference reference = storage.getReference().child("profile_picture")
+                                .child(FirebaseAuth.getInstance().getUid());
+                        reference.putFile(profileUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                Toast.makeText(getContext(), "Uploaded", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }
+            });
+};
