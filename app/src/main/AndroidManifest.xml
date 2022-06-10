@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobileproject" >
         <activity
+            android:name=".activity_light"
+            android:exported="false" />
+        <activity
             android:name=".NavCategoryActivity"
             android:exported="false" />
         <activity
