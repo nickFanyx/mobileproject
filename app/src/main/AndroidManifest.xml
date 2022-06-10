@@ -19,7 +19,8 @@
             android:exported="false" />
         <activity
             android:name=".NavCategoryActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Mobileproject.NoActionBar" />
         <activity
             android:name=".DetailedActivity"
             android:exported="false"

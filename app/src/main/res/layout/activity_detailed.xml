@@ -26,7 +26,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Detailed Products"
-        android:fontFamily="sans-serif-condensed"/>
+        android:fontFamily="sans-serif-condensed"
+        app:titleTextColor="@color/white"/>
 
     <TextView
         android:id="@+id/detailed_price"
