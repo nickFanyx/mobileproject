@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:text="Popular Products"
             android:textSize="19sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/pop_des"
@@ -62,7 +63,8 @@
                 android:layout_marginTop="3dp"
                 android:text="Discount 20% Off"
                 android:textStyle="bold"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:textColor="@color/Red"/>
 
         </LinearLayout>
 
