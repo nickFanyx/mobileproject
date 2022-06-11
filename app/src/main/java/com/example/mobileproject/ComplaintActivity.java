@@ -11,6 +11,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -26,7 +27,7 @@ public class ComplaintActivity extends AppCompatActivity {
     public static final int CAMERA_PERM_CODE = 101;
     public static final int CAMERA_REQUEST_CODE = 102;
     ImageView selectedImage;
-    Button cameraBtn,confirmBtn;
+    Button cameraBtn,confirmBtn,callBtn;
     Toolbar toolbar;
 
     @Override
@@ -39,6 +40,7 @@ public class ComplaintActivity extends AppCompatActivity {
         selectedImage = findViewById(R.id.imageView_complaint);
         cameraBtn = findViewById(R.id.button_complain);
         confirmBtn = findViewById(R.id.button_complain2);
+        callBtn = findViewById(R.id.button_complain3);
         toolbar = findViewById(R.id.toolbar5);
         setSupportActionBar(toolbar);
 
@@ -54,6 +56,15 @@ public class ComplaintActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(ComplaintActivity.this, MainActivity.class));
                 Toast.makeText(ComplaintActivity.this, "Successfully Complaint", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        callBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:074671234"));
+                startActivity(intent);
             }
         });
 
