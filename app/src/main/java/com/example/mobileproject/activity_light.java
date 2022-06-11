@@ -7,6 +7,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,11 +16,14 @@ import org.w3c.dom.Text;
 public class activity_light extends AppCompatActivity implements SensorEventListener {
 
     TextView textView;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
+
+        imageView = findViewById(R.id.image_light);
 
         SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
@@ -40,9 +44,11 @@ public class activity_light extends AppCompatActivity implements SensorEventList
         @Override
         public void onSensorChanged (SensorEvent event) {
 
-            if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
-                ((TextView) findViewById(R.id.txtValues)).setText("Values :" + event.values[0]);
+            if (event.values[0]>40) {
+                imageView.setImageResource(R.drawable.discount);
 
+            }else{
+                imageView.setImageResource(R.drawable.shake);
             }
         }
         @Override

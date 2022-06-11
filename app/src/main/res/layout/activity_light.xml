@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".activity_light">
+    tools:context=".activity_light"
+    android:orientation="vertical">
     
     <TextView
         android:layout_width="wrap_content"
@@ -14,5 +15,11 @@
         android:id="@+id/txtValues"
         android:textSize="34sp"
         android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shake"
+        android:id="@+id/image_light"/>
 
 </LinearLayout>
