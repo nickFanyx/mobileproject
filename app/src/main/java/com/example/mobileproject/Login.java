@@ -1,18 +1,16 @@
 package com.example.mobileproject;
 
-
 import static androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG;
 import static androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -25,6 +23,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import android.content.SharedPreferences;
 
 import java.util.concurrent.Executor;
 
@@ -33,12 +32,12 @@ public class Login extends AppCompatActivity {
     Button signIn;
     EditText email, password;
     TextView signUp;
-
     FirebaseAuth auth;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    Boolean savelogin;
 
 
-
-    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +51,9 @@ public class Login extends AppCompatActivity {
         signUp = findViewById(R.id.sign_up);
         TextView msg_text = findViewById(R.id.txt_msg);
         Button Fingerprint_btn = findViewById(R.id.Fingerprint_btn);
+
+        sharedPreferences = getSharedPreferences("loginref", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +70,13 @@ public class Login extends AppCompatActivity {
 
             }
         });
+
+            savelogin=sharedPreferences.getBoolean("savelogin", true);
+            if (savelogin==true){
+                email.setText(sharedPreferences.getString("username", null));
+                password.setText(sharedPreferences.getString("Password", null));
+        }
+
         //Create the Biometric
         BiometricManager biometricManager = BiometricManager.from(this);
         switch (biometricManager.canAuthenticate(BIOMETRIC_STRONG | DEVICE_CREDENTIAL)) {
@@ -100,7 +109,7 @@ public class Login extends AppCompatActivity {
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
 
-                Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+
                 startActivity(new Intent(Login.this, HomeCategory.class));
 
             }
@@ -134,7 +143,7 @@ public class Login extends AppCompatActivity {
         String userPassword = password.getText().toString();
 
         if (TextUtils.isEmpty(userEmail)){
-            Toast.makeText(this, "Password is Empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Email is Empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -154,8 +163,10 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()){
+                            SharedPreferences.Editor editor =sharedPreferences.edit();
+                            editor.putString("email", userEmail);
+                            editor.commit();
                             startActivity(new Intent(Login.this, HomeCategory.class));
-
 
                         }
                         else{
