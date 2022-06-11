@@ -14,6 +14,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.mobileproject.databinding.ActivityEditAddressBinding;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -99,6 +100,7 @@ public class EditAddress extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 } else {
+                    Toast.makeText(EditAddress.this, "Open Google to get current Location", Toast.LENGTH_SHORT).show();
 
                 }
 

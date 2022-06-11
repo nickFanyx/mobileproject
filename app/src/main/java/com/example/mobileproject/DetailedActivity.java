@@ -8,8 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.mobileproject.Model.CartModel;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DetailedActivity extends AppCompatActivity {
 
@@ -57,6 +63,7 @@ public class DetailedActivity extends AppCompatActivity {
 
             totalPrice = viewAllModel.getPrice() * totalQuantity;
 
+
             if (viewAllModel.getType().equals("bread")) {
                 price.setText("Price :RM" + viewAllModel.getPrice() + "/pack");
                 totalPrice = viewAllModel.getPrice() * totalQuantity;
@@ -89,6 +96,22 @@ public class DetailedActivity extends AppCompatActivity {
                         quantity.setText(String.valueOf(totalQuantity));
                     }
 
+                }
+            });
+
+            addToCart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(DetailedActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                    CollectionReference colRef= FirebaseFirestore.getInstance().collection("Cart");
+                    String cartId=colRef.document().getId();
+                    CartModel cart = new CartModel(cartId,viewAllModel.getName(),"1",totalQuantity,viewAllModel.getPrice(),viewAllModel.getImg_url());
+                    colRef.document(cartId).set(cart).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(DetailedActivity.this, "added succes", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             });
 

@@ -5,24 +5,15 @@ import android.os.Parcelable;
 
 public class CartModel  implements Parcelable {
     private String itemId;
-    private String productId;
     private String productName;
     private String userId;
     private int orderQty;
     private float price;
     private String imageurl;
 
-    public CartModel(String productId, String productName, String userId, int orderQty, float price, String imageurl) {
-        this.productId = productId;
-        this.productName = productName;
-        this.userId = userId;
-        this.orderQty = orderQty;
-        this.price = price;
-        this.imageurl = imageurl;
-    }
-    public CartModel(String itemId,String productId, String productName, String userId, int orderQty, float price, String imageurl) {
+
+    public CartModel(String itemId, String productName, String userId, int orderQty, float price, String imageurl) {
         this.itemId=itemId;
-        this.productId = productId;
         this.productName = productName;
         this.userId = userId;
         this.orderQty = orderQty;
@@ -37,7 +28,6 @@ public class CartModel  implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.itemId);
-        dest.writeString(this.productId);
         dest.writeString(this.productName);
         dest.writeString(this.userId);
         dest.writeInt(this.orderQty);
@@ -46,7 +36,6 @@ public class CartModel  implements Parcelable {
     }
     protected CartModel(Parcel in) {
         this.itemId=in.readString();
-        this.productId = in.readString();
         this.productName = in.readString();
         this.userId = in.readString();
         this.orderQty = in.readInt();
@@ -76,13 +65,7 @@ public class CartModel  implements Parcelable {
     public CartModel() {
     }
 
-    public String getProductId() {
-        return productId;
-    }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
 
     public String getProductName() {
         return productName;
