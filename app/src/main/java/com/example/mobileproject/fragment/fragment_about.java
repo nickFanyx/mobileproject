@@ -75,7 +75,7 @@ public class fragment_about extends Fragment {
         facebookIC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sAppLink = "fb://page/237564710351658";
+                String sAppLink = "https://www.facebook.com/grocerystore2door/";
                 String sPackage = "com.facebook.katana";
                 String sWebLink = "https://www.facebook.com/grocerystore2door/";
                 
@@ -86,7 +86,7 @@ public class fragment_about extends Fragment {
         instagramIC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sAppLink = "https://www.instagram.com/androidcoding_";
+                String sAppLink = "https://www.instagram.com/grocerystore2door/";
                 String sPackage = "com.instagram.android";
 
                 openLink(sAppLink,sPackage,sAppLink);
