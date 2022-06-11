@@ -59,7 +59,7 @@ public class DetailedActivity extends AppCompatActivity {
             Glide.with(getApplicationContext()).load(viewAllModel.getImg_url()).into(detailedImg);
             rating.setText(viewAllModel.getRating());
             description.setText(viewAllModel.getDescription());
-            price.setText("Price :RM" + viewAllModel.getPrice() + "/gram");
+            price.setText("Price :RM" + viewAllModel.getPrice() + "/kg");
 
             totalPrice = viewAllModel.getPrice() * totalQuantity;
 
@@ -102,14 +102,14 @@ public class DetailedActivity extends AppCompatActivity {
             addToCart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(DetailedActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailedActivity.this, "Added To Cart", Toast.LENGTH_SHORT).show();
                     CollectionReference colRef= FirebaseFirestore.getInstance().collection("Cart");
                     String cartId=colRef.document().getId();
                     CartModel cart = new CartModel(cartId,viewAllModel.getName(),"1",totalQuantity,viewAllModel.getPrice(),viewAllModel.getImg_url());
                     colRef.document(cartId).set(cart).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(DetailedActivity.this, "added succes", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DetailedActivity.this, "Successfully Added", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
