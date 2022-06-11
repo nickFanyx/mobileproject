@@ -1,5 +1,7 @@
 package com.example.mobileproject.fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.mobileproject.Model.OrderModel;
@@ -40,6 +43,8 @@ public class fragment_order_history extends Fragment {
     RecyclerView recyclerView;
     List<OrderModel> orderlistModel;
     OrderAdapter orderAdapter;
+
+
 
 
 
@@ -91,6 +96,10 @@ public class fragment_order_history extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_order_history, container, false);
 
+
+
+
+
         db = FirebaseFirestore.getInstance();
         recyclerView = root.findViewById(R.id.orderlist);
 
@@ -99,6 +108,7 @@ public class fragment_order_history extends Fragment {
         orderAdapter = new OrderAdapter(getActivity(),orderlistModel);
         recyclerView.setAdapter(orderAdapter);
         db.collection("Order")
+
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -128,6 +138,12 @@ public class fragment_order_history extends Fragment {
 
 
 
+
+
+
+
         return root;
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.example.mobileproject.fragment;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -68,6 +69,19 @@ public class fragment_help extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_help, container, false);
+
+        Button btn = root.findViewById(R.id.historybtn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.termsfeed.com/blog/sample-return-policy-ecommerce-stores/"));
+                startActivity(i);
+
+            }
+        });
 
         lightBtn = root.findViewById(R.id.light_btn);
 
