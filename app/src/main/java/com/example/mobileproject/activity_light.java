@@ -43,11 +43,11 @@ public class activity_light extends AppCompatActivity implements SensorEventList
         public void onSensorChanged (SensorEvent event) {
 
             if (event.values[0]>5000) {
-                imageView.setImageResource(R.drawable.membercardd);
+                imageView.setImageResource(R.drawable.membershipcard);
 
 
             }else{
-                imageView.setImageResource(R.drawable.membershipcard);
+                imageView.setImageResource(R.drawable.membercardd);
 
             }
         }
