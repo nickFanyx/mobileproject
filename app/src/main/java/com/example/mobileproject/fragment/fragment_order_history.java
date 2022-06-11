@@ -97,18 +97,7 @@ public class fragment_order_history extends Fragment {
         View root = inflater.inflate(R.layout.fragment_order_history, container, false);
 
 
-        Button btn = root.findViewById(R.id.historybtn);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.termsfeed.com/blog/sample-return-policy-ecommerce-stores/"));
-                        startActivity(i);
-
-            }
-        });
 
 
         db = FirebaseFirestore.getInstance();
