@@ -77,7 +77,7 @@ public class fragment_about extends Fragment {
             public void onClick(View v) {
                 String sAppLink = "fb://page/237564710351658";
                 String sPackage = "com.facebook.katana";
-                String sWebLink = "https://www.facebook.com/12H1rDeveloper";
+                String sWebLink = "https://www.facebook.com/grocerystore2door/";
                 
                 openLink(sAppLink,sPackage,sWebLink);
             }
