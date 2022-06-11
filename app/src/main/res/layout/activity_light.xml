@@ -11,15 +11,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensor Values"
+        android:text="Go darkside to show membership card"
         android:id="@+id/txtValues"
-        android:textSize="34sp"
-        android:textStyle="bold"/>
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:paddingBottom="30dp"/>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/shake"
-        android:id="@+id/image_light"/>
+        android:id="@+id/image_light"
+        android:layout_width="301dp"
+        android:layout_height="346dp"
+        android:src="@drawable/membershipcard" />
 
 </LinearLayout>

@@ -8,14 +8,12 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+
 
 public class activity_light extends AppCompatActivity implements SensorEventListener {
 
-    TextView textView;
     ImageView imageView;
 
     @Override
@@ -44,11 +42,13 @@ public class activity_light extends AppCompatActivity implements SensorEventList
         @Override
         public void onSensorChanged (SensorEvent event) {
 
-            if (event.values[0]>40) {
-                imageView.setImageResource(R.drawable.discount);
+            if (event.values[0]>5000) {
+                imageView.setImageResource(R.drawable.membercardd);
+
 
             }else{
-                imageView.setImageResource(R.drawable.shake);
+                imageView.setImageResource(R.drawable.membershipcard);
+
             }
         }
         @Override

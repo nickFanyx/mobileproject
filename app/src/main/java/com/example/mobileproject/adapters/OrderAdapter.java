@@ -42,6 +42,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         holder.address.setText(orderlistModel.getAddress());
         holder.totalpayment.setText(""+orderlistModel.getTotalPayment());
         holder.totalprice.setText(""+orderlistModel.getTotalPrice());
+        holder.orderdate.setText(""+orderlistModel.getOrderDate());
+
+
 
     }
 
@@ -52,7 +55,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView address, totalpayment, totalprice;
+        TextView address, totalpayment, totalprice,orderdate;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +63,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
             address = itemView.findViewById(R.id.order_address);
             totalpayment = itemView.findViewById(R.id.order_totalpayment);
             totalprice = itemView.findViewById(R.id.order_totalprice);
+            orderdate= itemView.findViewById(R.id.orderDate);
+
+
         }
     }
 
