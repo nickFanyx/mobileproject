@@ -62,7 +62,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ItemViewHolder
         Glide.with(context).load(cartModels.get(position).getImageurl()).into(holder.ivProduct);
         holder.tvPrice.setText("RM " + String.format("%.2f", cartModels.get(position).getPrice()));
         holder.tvQuantity.setText("" + cartModels.get(position).getOrderQty());
-        Log.i(TAG, "Error: item Id" + cartModels.get(position).getItemId());
+        //Log.i(TAG, "Error: item Id" + cartModels.get(position).getItemId());
 
         if (cbArray.size() < getItemCount()) {
             cbArray.add(holder.cbSelect);
@@ -82,6 +82,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ItemViewHolder
                     if (holder.cbSelect.isChecked()) {
                         onListItemClick.onMinusSelected(cartModels.get(position).getOrderQty(), cartModels.get(position).getPrice(), cartModels.get(position));
                     }
+                    FirebaseFirestore.getInstance().collection("Cart").document(cartModels.get(position).getItemId()).update("orderQty",qty).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Log.i(TAG, "Error: item Id jadi cok");
+                        }
+                    });
 
 
                 }
@@ -106,6 +112,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ItemViewHolder
                 if (holder.cbSelect.isChecked()) {
                     onListItemClick.onAddSelected(cartModels.get(position).getOrderQty(), cartModels.get(position).getPrice(), cartModels.get(position));
                 }
+                FirebaseFirestore.getInstance().collection("Cart").document(cartModels.get(position).getItemId()).update("orderQty",qty).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Error: item Id jadi cok");
+                    }
+                });
+
 
 
             }
