@@ -3,6 +3,8 @@ package com.example.mobileproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -102,16 +104,24 @@ public class DetailedActivity extends AppCompatActivity {
             addToCart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(DetailedActivity.this, "Added To Cart", Toast.LENGTH_SHORT).show();
-                    CollectionReference colRef= FirebaseFirestore.getInstance().collection("Cart");
-                    String cartId=colRef.document().getId();
-                    CartModel cart = new CartModel(cartId,viewAllModel.getName(),"1",totalQuantity,viewAllModel.getPrice(),viewAllModel.getImg_url());
-                    colRef.document(cartId).set(cart).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(DetailedActivity.this, "Successfully Added", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    SharedPreferences sharedPreferences = getSharedPreferences("loginref", Context.MODE_PRIVATE);
+                    String uid= sharedPreferences.getString("uid","");
+
+                    if(uid!=""){
+                        CollectionReference colRef= FirebaseFirestore.getInstance().collection("Cart");
+                        String cartId=colRef.document().getId();
+                        CartModel cart = new CartModel(cartId,viewAllModel.getName(),uid,totalQuantity,viewAllModel.getPrice(),viewAllModel.getImg_url());
+                        colRef.document(cartId).set(cart).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(DetailedActivity.this, "Successfully Added", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }else{
+                        Toast.makeText(DetailedActivity.this, "You need to login first", Toast.LENGTH_SHORT).show();
+                    }
+
+
                 }
             });
 
