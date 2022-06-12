@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -58,6 +59,16 @@ public class EditAddress extends AppCompatActivity {
             }
         });
 
+        binding.openmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("geo:3.5392225139534323, 103.42818215018028"));
+                startActivity(intent);
+
+            }
+        });
+
         //define fused
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -100,7 +111,7 @@ public class EditAddress extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 } else {
-                    Toast.makeText(EditAddress.this, "Open Google to get current Location", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditAddress.this, "No location, Open Google Maps to set current Location", Toast.LENGTH_SHORT).show();
 
                 }
 

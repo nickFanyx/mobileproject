@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.View;
@@ -101,7 +103,9 @@ public class Checkout extends AppCompatActivity {
                     CollectionReference ref = db.collection("Order");
 
                     String orderId=ref.document().getId();
-                    OrderModel order= new OrderModel(orderId,"1", totalPrice, totalPayment,currAdd,cartModelArrayList);
+                    SharedPreferences sharedPreferences = getSharedPreferences("loginref", Context.MODE_PRIVATE);
+                    String uid= sharedPreferences.getString("uid","");
+                    OrderModel order= new OrderModel(orderId,uid, totalPrice, totalPayment,currAdd,cartModelArrayList);
                     ref.document(orderId).set(order).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {

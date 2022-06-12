@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,8 +62,12 @@ public class ShoppingCart extends AppCompatActivity implements CartAdapter.OnLis
         binding.cartShimmer.startShimmer();
         cartModelArrayList = new ArrayList<>();
         firebaseFirestore = FirebaseFirestore.getInstance();
+
+        SharedPreferences sh = getSharedPreferences("loginref", Context.MODE_PRIVATE);
+        String s1 = sh.getString("name", "");
         FetchDataFromDatabase();
         HandleOnClick();
+
 
     }
 
@@ -94,7 +100,9 @@ public class ShoppingCart extends AppCompatActivity implements CartAdapter.OnLis
 
 
     private void FetchDataFromDatabase() {
-        firebaseFirestore.collection("Cart").whereEqualTo("userId", "1").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        SharedPreferences sharedPreferences = getSharedPreferences("loginref", Context.MODE_PRIVATE);
+        String uid= sharedPreferences.getString("uid","");
+        firebaseFirestore.collection("Cart").whereEqualTo("userId", uid).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 try {

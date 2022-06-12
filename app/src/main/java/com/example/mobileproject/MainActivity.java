@@ -7,8 +7,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.mobileproject.fragment.fragment_about;
@@ -63,8 +66,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_shopping_cart:
+                if(checkUid()){
+                    startActivity(new Intent(MainActivity.this, ShoppingCart.class));
+                }else {
+                    startActivity(new Intent(MainActivity.this, Login.class));
+                }
 
-                startActivity(new Intent(MainActivity.this, ShoppingCart.class));
                 break;
             case R.id.nav_order_history:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_order_history()).commit();
@@ -85,7 +92,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawer.closeDrawer(GravityCompat.START);
 
-
         return true;
+    }
+
+    boolean checkUid(){
+        SharedPreferences sharedPreferences = getSharedPreferences("loginref", Context.MODE_PRIVATE);
+       String uid= sharedPreferences.getString("uid","");
+        Log.d("kelik", uid);
+
+        if (uid!="") {
+        return true;
+        }else{
+            return false;
+        }
+
+
     }
 }

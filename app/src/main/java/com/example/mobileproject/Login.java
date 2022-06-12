@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -165,6 +166,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()){
                             SharedPreferences.Editor editor =sharedPreferences.edit();
                             editor.putString("email", userEmail);
+                            editor.putString("uid",auth.getCurrentUser().getUid());
                             editor.commit();
                             startActivity(new Intent(Login.this, HomeCategory.class));
 
