@@ -1,6 +1,7 @@
 package com.example.mobileproject.fragment;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.nfc.Tag;
@@ -50,13 +51,13 @@ public class fragment_profile extends Fragment{
 
 
     CircleImageView profileImg;
-    TextView name, email;
+    TextView name, email, officialemail;
     Button update;
+    Button contactgmail;
 
     FirebaseStorage storage;
     FirebaseAuth auth;
     FirebaseDatabase database;
-
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -71,9 +72,6 @@ public class fragment_profile extends Fragment{
         profileImg = root.findViewById(R.id.profile_img);
         name = root.findViewById(R.id.profile_name);
         email = root.findViewById(R.id.profile_email);
-        TextView officialemail = root.findViewById(R.id.textViewEmailContact);
-        officialemail.setText(Html.fromHtml("<a href=\"mailto:store2door@gmail.com\"> Contact Us:store2door@gmail.com</a>"));
-        officialemail.setMovementMethod(LinkMovementMethod.getInstance());
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -137,5 +135,18 @@ public class fragment_profile extends Fragment{
                 }
             });
         }
+
+
     }
+    public void openApp(View v){
+        Intent launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
+
+        if(launchIntent != null){
+            startActivity(launchIntent);
+        }
+        else{
+            Toast.makeText(getContext(), "There is no package", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 };
