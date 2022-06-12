@@ -13,7 +13,10 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import android.text.Html;
 import android.text.Layout;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,6 +71,9 @@ public class fragment_profile extends Fragment{
         profileImg = root.findViewById(R.id.profile_img);
         name = root.findViewById(R.id.profile_name);
         email = root.findViewById(R.id.profile_email);
+        TextView officialemail = root.findViewById(R.id.textViewEmailContact);
+        officialemail.setText(Html.fromHtml("<a href=\"mailto:store2door@gmail.com\"> Contact Us:store2door@gmail.com</a>"));
+        officialemail.setMovementMethod(LinkMovementMethod.getInstance());
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                         .addListenerForSingleValueEvent(new ValueEventListener() {
