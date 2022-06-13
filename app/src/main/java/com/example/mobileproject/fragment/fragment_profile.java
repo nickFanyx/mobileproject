@@ -72,6 +72,7 @@ public class fragment_profile extends Fragment{
         profileImg = root.findViewById(R.id.profile_img);
         name = root.findViewById(R.id.profile_name);
         email = root.findViewById(R.id.profile_email);
+        contactgmail = root.findViewById(R.id.gmail_btn);
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -98,6 +99,15 @@ public class fragment_profile extends Fragment{
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(intent, 131);
+            }
+        });
+
+        contactgmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.gmail.com"));
+                startActivity(i);
             }
         });
 
@@ -136,17 +146,5 @@ public class fragment_profile extends Fragment{
             });
         }
 
-
     }
-    public void openApp(View v){
-        Intent launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
-
-        if(launchIntent != null){
-            startActivity(launchIntent);
-        }
-        else{
-            Toast.makeText(getContext(), "There is no package", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-};
+}
